@@ -37,18 +37,90 @@ function formatName (user) {
 }
 // component 组件名、组件标签大写； 小写默认为HTML标签
 function F1(props) {
-  return <h2>hello, { props.name }.age is { props.age === ''| 1 ? 'empty' : props.age }</h2>
+  return <h2>hello, { props.name }.age is { props.age === '' ? 'empty' : props.age }</h2>
 }
 // 组件复用
-// function App() {
-//   <div>
-//     <F1 name="martin"/>
-//     <F1 name="martin1"/>
-//     <F1 name="martin2"/>    
-//   </div>
+function App () {
+  return (
+    <div>
+      <F1 name="martin"/>
+      <F1 name="martin1" age="78"/>
+      <F1 name="martin2"/>    
+    </div>
+  )
+}
+// const element = <F1 name={ user.lastName }/>
+
+const cc = {
+  author: {
+    name: 'jackson',
+    avatarUrl: 'http://placekitten.com/g/64/64',
+  },
+  text: 'text',
+  date: new Date()
+}
+
+function formatDate (date) {
+  return date.toLocaleDateString()
+}
+
+// 以下给<Comment /> 定义了 author{}、text、 date 三个属性，其中author 为对象
+// 拆分
+// 注意：All React components must act like pure functions with respect to their props
+function Avatar (props) {
+  return (
+    <img className="Avatar" src={ props.author.avatarUrl } alt={ props.author.name }/>
+  )
+}
+// class方式写component？
+// class Avatar extends React.component {
+//   render (props) {
+//     return <img className="Avatar" src={ props.author.avatarUrl } alt={ props.author.name }/>
+//   } 
 // }
-const element = <F1 name={ user.lastName }/>
-// const element = <App />
+function Username (props) {
+  return (
+    <div className="Username">{ props.author.name }</div>    
+  )
+}
+function CommentText (props) {
+  return (
+    <div className="CommentText">{ props.text }</div>    
+  )
+}
+function CommentDate (props) {
+  return (
+    <div className="CommentDate">{ formatDate(props.date) }</div>          
+  )
+}
+function UserInfo () {
+  return (
+    <div className="UserInfo">
+      <Avatar author={cc.author}/>
+      <Username author={cc.author}/>
+    </div>
+  )
+}
+function Comment (props) {
+  return (
+    <div className="Comment">
+      <UserInfo />
+      {/* <div className="UserInfo"> */}
+        {/* <Avatar author={cc.author}/> */}
+        {/* <Username author={cc.author}/> */}
+        {/* <img className="Avatar" src={ props.author.avatarUrl } alt={ props.author.name }/> */}
+        {/* <div className="Username">{ props.author.name }</div> */}
+      {/* </div> */}
+      <CommentText text={cc.text} />
+      <CommentDate date={cc.date} />      
+      {/* <div className="Comment-text">{ props.text }</div> */}
+      {/* <div className="Comment-date">{ formatDate(props.date) }</div>       */}
+    </div>
+  )
+}
+const element = <Comment date={cc.date} text={cc.text} author={cc.author}/>
+
+// 提取组件
 
 function getGreetings (user) {
   if (user) {
