@@ -63,7 +63,8 @@ const cc = {
     avatarUrl: 'http://placekitten.com/g/64/64',
   },
   text: 'text',
-  date: new Date()
+  date: new Date(),
+  name: 'cln'
 }
 
 function formatDate (date) {
@@ -139,15 +140,45 @@ function getGreetings (user) {
 }
 
 // element 一旦创建，不可改变！唯有创建新的
+// 或者 通过改变 state (使用state必须使用组件class写法)
+// 提取出 clock 样式
+// function Clock(props) {
+//   return (
+//     <div>
+//       <h1>hello, clock</h1>
+//       <h2>time is {''} { props.date.toLocaleTimeString() }</h2>
+//     </div>
+//   )
+// }
+// 使用state， 移除原来的props到state
+class Clock extends React.Component {
+  // 初始化state
+  constructor (props) {
+    super(props)
+    this.state = {
+      date: cc.date,
+      name: cc.name
+    }
+  }
+  render () {
+    return (
+      <div>
+        <h1>hello, clockClass, {this.state.name}</h1>
+        <h2>time is {''} { this.state.date.toLocaleTimeString() }</h2>
+      </div>
+    )
+  }
+}
 function tick () {
-  const element = (
-    <div>
-      <h1>hello, element</h1>
-      <h2>time is {''} { new Date().toLocaleTimeString() }</h2>
-    </div>
-  );
+  // const element = (
+  //   <div>
+  //     <h1>hello, element</h1>
+  //     <h2>time is {''} { new Date().toLocaleTimeString() }</h2>
+  //   </div>
+  // )
   ReactDOM.render(
-    element,
+    // element,
+    <Clock/>,
     document.getElementById('root')
   )
 }
