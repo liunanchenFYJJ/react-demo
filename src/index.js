@@ -151,8 +151,10 @@ function getGreetings (user) {
 //   )
 // }
 // 使用state， 移除原来的props到state
+// 在组件 类 中使用 生命周期钩子
 class Clock extends React.Component {
   // 初始化state
+  // 1.Clock需要展示的数据
   constructor (props) {
     super(props)
     this.state = {
@@ -160,6 +162,39 @@ class Clock extends React.Component {
       name: cc.name
     }
   }
+  // 挂在生命周期钩子
+  componentDidMount () {
+    console.log('挂载,每一秒执行一次')
+    this.timerID = setInterval(() => {
+      this.tickInside()
+    }, 1000)
+  }
+  componentWillUnmount () {
+    console.log('移除挂载')    
+    clearInterval(this.timerID)
+  }
+  tickInside () {
+    // 4.调用tickInside，使用setState更新UI
+    // setState也是唯一更改数据的方式
+    this.setState({
+      date: new Date(),
+      name: 'JT-' + new Date().getTime()
+    })
+    // setState 的第二种写法（使用箭头函数）
+  //   this.setState((prevState, props) => (
+  //     {
+  //     counter: prevState.counter + props.increment
+  //   }
+  // ))
+  // 普通函数写法
+  //   this.setState(function (prevState, props) {
+  //     return {
+  //       counter: prevState.counter + props.increment      
+  //     }
+  //   })
+  }
+  // render 里的才需要 state
+  // 2.Clock组件需要展示的内容 5.根据更新数据重新渲染
   render () {
     return (
       <div>
@@ -169,6 +204,16 @@ class Clock extends React.Component {
     )
   }
 }
+
+function App() {
+  return (
+    <div>
+      <Clock/>,
+      <Clock/>
+    </div>
+  )
+}
+
 function tick () {
   // const element = (
   //   <div>
@@ -178,7 +223,7 @@ function tick () {
   // )
   ReactDOM.render(
     // element,
-    <Clock/>,
+    <App/>,// 3.当Clock渲染到DOM,调用 componentDidMount 钩子,在其内部调用 tickInside
     document.getElementById('root')
   )
 }
@@ -188,9 +233,14 @@ function tick () {
 ReactDOM.render(
   // <h1>hello React</h1>,
   element,
+  // <Clock/>,  
   // <App />,
   // a “root” DOM
   document.getElementById('root')
 )
-setInterval(tick, 1000)
+setInterval(tick, 2000)
 // setTimeout(tick, 1000);
+
+// data flows down 单向数据流
+// state 定义于某组件，使用于该组件
+// fatherComponent ------state as props------>sonComponent
