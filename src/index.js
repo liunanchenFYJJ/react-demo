@@ -202,6 +202,7 @@ class Clock extends React.Component {
   }
   // render 里的才需要 state
   // 2.Clock组件需要展示的内容 5.根据更新数据重新渲染
+
   render () {
     return (
       <div>
@@ -209,6 +210,27 @@ class Clock extends React.Component {
         <h2>time is {''} { this.state.date.toLocaleTimeString() }</h2>
       </div>
     )
+  }
+}
+
+class UserGreeting extends React.Component {
+  render () {
+    return <h1>welcome back!</h1>
+  }
+}
+class GuestGreeting extends React.Component {
+  render () {
+    return <h1>please sign up</h1>
+  }
+}
+class Greeting extends React.Component {
+  render () {
+    const isLogin = this.props.isLogin
+    if (isLogin) {
+      return <UserGreeting/>
+    } else {
+      return <GuestGreeting/>
+    }
   }
 }
 
@@ -274,7 +296,8 @@ class Toggle extends React.Component {
   }
 }
 
-const element = (<Toggle/>)
+// const element = (<Toggle/>)
+const element = (<Greeting/>)
 
 ReactDOM.render(
   // <h1>hello React</h1>,
