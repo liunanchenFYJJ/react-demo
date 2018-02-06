@@ -167,13 +167,15 @@ class Clock extends React.Component {
       name: cc.name
     }
   }
+  // 挂载 clock 每两秒钟自己更新自己得状态
   // 挂在生命周期钩子
   componentDidMount () {
     console.log('挂载,每一秒执行一次')
     this.timerID = setInterval(() => {
       this.tickInside()
-    }, 1000)
+    }, 2000)
   }
+  // 卸载
   componentWillUnmount () {
     console.log('移除挂载')    
     clearInterval(this.timerID)
@@ -210,6 +212,7 @@ class Clock extends React.Component {
   }
 }
 
+// 组件应该自己更新自己的状态。
 function App() {
   return (
     <div>
