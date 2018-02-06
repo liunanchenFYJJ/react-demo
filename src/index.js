@@ -126,7 +126,10 @@ function Comment (props) {
     </div>
   )
 }
-const element = <Comment date={cc.date} text={cc.text} author={cc.author}/>
+// 推荐在jsx代码的外面扩上(), 防止代码自动插入的bug
+// jsx 编译之后转化为普通的 js 对象，所以可以写在 js 语句中
+
+const element = ( <Comment date={cc.date} text={cc.text} author={cc.author}/> )
 
 // 提取组件
 
@@ -214,6 +217,7 @@ function App() {
   )
 }
 
+// 实际：有状态组件更新方式！React 只会更新必要的部分
 function tick () {
   // const element = (
   //   <div>
