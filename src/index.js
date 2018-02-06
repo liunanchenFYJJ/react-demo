@@ -81,9 +81,11 @@ function formatDate (date) {
 //   )
 // }
 // class方式写component
+// 从自身角度命名props， 而不是根据组件的上下文
+// props 的只读性 React组件必须像纯函数那样使用props(即不改变输入值)
 class Avatar extends React.Component {
   render () {
-    return <img className="Avatar" src={ this.props.author.avatarUrl } alt={ this.props.author.name }/>
+    return <img className="Avatar" src={ this.props.user.avatarUrl } alt={ this.props.user.name }/>
   } 
 }
 function Username (props) {
@@ -104,7 +106,7 @@ function CommentDate (props) {
 function UserInfo () {
   return (
     <div className="UserInfo">
-      <Avatar author={cc.author}/>
+      <Avatar user={cc.author}/>
       <Username author={cc.author}/>
     </div>
   )
