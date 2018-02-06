@@ -131,7 +131,7 @@ function Comment (props) {
 // 推荐在jsx代码的外面扩上(), 防止代码自动插入的bug
 // jsx 编译之后转化为普通的 js 对象，所以可以写在 js 语句中
 
-const element = ( <Comment date={cc.date} text={cc.text} author={cc.author}/> )
+// const element = ( <Comment date={cc.date} text={cc.text} author={cc.author}/> )
 
 // 提取组件
 
@@ -239,6 +239,43 @@ function tick () {
 // const element = <h1>{ getGreetings(user) }</h1>
 // const element = <Welcome name="Sara" /> 也可以是用户自定义的
 
+// 事件处理
+// 两点不同：1.事件名（驼峰法则）
+//          2.传入函数作为事件处理函数，而不是字符串
+class Toggle extends React.Component {
+    constructor (props) {
+      super(props)
+      this.state = {
+        buttonState: true
+      }
+      // This binding is necessary to make `this` work in the callback
+      // 类的方法默认是不会绑定 this (这一步必须)
+      this.handleClick = this.handleClick.bind(this)
+    }
+
+    handleClick () {
+      // 1.箭头函数写法
+      this.setState((prevState) => ({
+        buttonState: !prevState.buttonState
+      }))
+      //  2.基本写法
+      // this.setState(function (prevState) {
+      //   console.log(prevState.buttonState)
+      //   return {
+      //     buttonState : !prevState.buttonState
+      //   }
+      // })
+    }
+
+  render () {
+    return (
+      <button onClick={this.handleClick}>{this.state.buttonState ? '开' : '关'}</button>
+    )
+  }
+}
+
+const element = (<Toggle/>)
+
 ReactDOM.render(
   // <h1>hello React</h1>,
   element,
@@ -247,7 +284,7 @@ ReactDOM.render(
   // a “root” DOM
   document.getElementById('root')
 )
-setInterval(tick, 2000)
+// setInterval(tick, 2000)
 // setTimeout(tick, 1000);
 
 // data flows down 单向数据流
