@@ -293,7 +293,9 @@ class LoginControl extends React.Component {
     }
     return (
       <div>
-        <Greeting isLogin={this.state.isLogin}/>{button}
+        <Greeting isLogin={this.state.isLogin}/>
+          {/*元素变量：用变量来存储元素，有条件渲染组件的一部分*/}
+          {button}
       </div>
     )
   }
