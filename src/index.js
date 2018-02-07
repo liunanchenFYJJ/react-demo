@@ -213,26 +213,92 @@ class Clock extends React.Component {
   }
 }
 
-class UserGreeting extends React.Component {
-  render () {
+// class UserGreeting extends React.Component {
+//   render () {
+//     return <h1>welcome back!</h1>
+//   }
+// }
+// class GuestGreeting extends React.Component {
+//   render () {
+//     return <h1>please sign up</h1>
+//   }
+// }
+// class Greeting extends React.Component {
+//   render () {
+//     const isLogin = this.props.isLogin
+//     if (isLogin) {
+//       return <UserGreeting/>
+//     } else {
+//       return <GuestGreeting/>
+//     }
+//   }
+// }
+
+function UserGreeting() {
     return <h1>welcome back!</h1>
-  }
 }
-class GuestGreeting extends React.Component {
-  render () {
+function GuestGreeting() {
     return <h1>please sign up</h1>
+}
+function Greeting(props) {
+  const isLogin = props.isLogin
+  if (isLogin) {
+    return <UserGreeting/>
+  } else {
+    return <GuestGreeting/>
   }
 }
-class Greeting extends React.Component {
-  render () {
-    const isLogin = this.props.isLogin
-    if (isLogin) {
-      return <UserGreeting/>
-    } else {
-      return <GuestGreeting/>
+
+function LoginButton(props) {
+  return (
+      <button onClick={props.onClick}>login</button>
+  )
+}
+function LogoutButton(props) {
+    return (
+        <button onClick={props.onClick}>logout</button>
+    )
+}
+
+// LoginControl 有状态组件 要处理button onClick事件
+class LoginControl extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      isLogin: true
     }
+    this.handleLoginClick = this.handleLoginClick.bind(this)
+    this.handleLogoutClick = this.handleLogoutClick.bind(this)
+  }
+
+  handleLoginClick () {
+    console.log('login')
+    this.setState({
+        isLogin: false
+    })
+  }
+  handleLogoutClick () {
+    console.log('logout')
+    this.setState({
+    isLogin: true
+    })
+  }
+  render () {
+    const isButton = this.state.isLogin
+    let button = null
+    if (isButton) {
+      button = <LogoutButton onClick={this.handleLoginClick}/>
+    } else {
+      button = <LoginButton onClick={this.handleLogoutClick}/>
+    }
+    return (
+      <div>
+        <Greeting isLogin={this.state.isLogin}/>{button}
+      </div>
+    )
   }
 }
+
 
 // 组件应该自己更新自己的状态。
 function App() {
@@ -297,8 +363,11 @@ class Toggle extends React.Component {
 }
 
 // const element = (<Toggle/>)
-const element = (<Greeting/>)
-
+// const login = {
+//   isLogin: true
+// }
+// const element = (<Greeting isLogin={login.isLogin}/>)
+const element = (<LoginControl/>)
 ReactDOM.render(
   // <h1>hello React</h1>,
   element,
