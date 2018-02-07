@@ -4,3 +4,10 @@ h1 {
 h2 {
     color: violet
 }
+ul {
+    list-style-type: none;
+}
+ul li {
+    display: inline;
+    margin-left: 20px;
+}
