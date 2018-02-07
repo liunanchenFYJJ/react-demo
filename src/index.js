@@ -385,7 +385,38 @@ function NumberList(props) {
 
 const numbers = [1, 1, 3, 5]
 // const listItems = numbers.map(number => <li>{number * 2}</li>)
-const element = (<NumberList numbers={numbers}/>)
+// const element = (<NumberList numbers={numbers}/>)
+
+// form 表单元素保留一些内部状态
+// 但是在 React 中，只能由setState()进行更新 这种方式成为 受控组件
+class NameForm extends React.Component {
+    constructor (props) {
+        super(props)
+        this.state = {value: ''}
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+    handleChange (event) {
+      // console.log(event.target.value)
+      this.setState({
+          value: event.target.value
+      })
+    }
+    handleSubmit (event) {
+        console.log('submit' + this.state.value)
+        // 不执行与事件关联的默认动作
+        event.preventDefault()
+    }
+    render () {
+        return (
+            <form onSubmit={this.handleSubmit}>
+              <label>Name:<input onChange={this.handleChange} type="text" value={this.state.value} name="name"/></label>
+              <input type="submit" value="SubmitForm" />
+            </form>
+        )
+    }
+}
+const element = (<NameForm/>)
 ReactDOM.render(
   // <h1>hello React</h1>,
   element,
