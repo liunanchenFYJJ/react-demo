@@ -369,7 +369,23 @@ class Toggle extends React.Component {
 //   isLogin: true
 // }
 // const element = (<Greeting isLogin={login.isLogin}/>)
-const element = (<LoginControl/>)
+// const element = (<LoginControl/>)
+// 列表list
+function NumberList(props) {
+    const numbers = props.numbers
+    // 创建一个元素，必须包括一个特殊的key属性 (key是独一无二的)
+    // Keys可以在DOM中的某些元素 增加或删除时，帮助React识别哪些 元素 发生了变化
+    // 所设计的数据表结构中应该带有id (index索引可以消除报错，但不推荐)
+    const listItems = numbers.map((number, index) => <li key={index}>{number * 3}</li>)
+    return (
+        <ul>{listItems}</ul>
+    )
+}
+
+
+const numbers = [1, 1, 3, 5]
+// const listItems = numbers.map(number => <li>{number * 2}</li>)
+const element = (<NumberList numbers={numbers}/>)
 ReactDOM.render(
   // <h1>hello React</h1>,
   element,
