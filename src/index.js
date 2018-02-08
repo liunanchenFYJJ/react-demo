@@ -392,26 +392,64 @@ const numbers = [1, 1, 3, 5]
 class NameForm extends React.Component {
     constructor (props) {
         super(props)
-        this.state = {value: ''}
+        this.state = {
+            inputvalue: '',
+            description: '',
+            select: ''
+        }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        // this.handleTextarea = this.handleTextarea.bind(this)
+        // this.handleSelect = this.handleSelect.bind(this)
     }
+    // 使用"受控组件",每个状态的改变都有一个与之相关的处理函数，这样就可以直接修改或者验证用户输入
+    // 每次按键触发handleChange 来更新当前的state
     handleChange (event) {
-      // console.log(event.target.value)
+      // console.log(event.target.name)
+      const name = event.target.name
+      const value = (name === 'inputvalue' ? event.target.value: (name === 'description' ? event.target.value: event.target.value))
+      //  2. 若一个form里面多个input时， 可使用input来判断对应value
+      //   const value = (event.target.type === 'input' ? event.target.value: (event.target.type === 'textarea' ? event.target.value: event.target.value))
+        console.log(value)
       this.setState({
-          value: event.target.value
+        [name]: value
       })
     }
     handleSubmit (event) {
-        console.log('submit' + this.state.value)
+        console.log('submit:' + this.state.inputvalue + '==' + this.state.description + '==' + this.state.select)
         // 不执行与事件关联的默认动作
         event.preventDefault()
     }
+    // handleTextarea (e) {
+    //     this.setState({
+    //         description: e.target.value
+    //     })
+    // }
+    // handleSelect (e) {
+    //     this.setState({
+    //         select: e.target.value
+    //     })
+    // }
     render () {
         return (
             <form onSubmit={this.handleSubmit}>
-              <label>Name:<input onChange={this.handleChange} type="text" value={this.state.value} name="name"/></label>
-              <input type="submit" value="SubmitForm" />
+                <label>Name:<input placeholder="input!"
+                                   onChange={this.handleChange}
+                                   type="text"
+                                   value={this.state.inputvalue}
+                                   name="inputvalue"/></label><br/>
+                <label>description:<textarea placeholder="textarea!"
+                                             onChange={this.handleChange}
+                                             value={this.state.description}
+                                             name="description"></textarea></label><br/>
+                <label>select:<select onChange={this.handleChange}
+                                      value={this.state.select}
+                                      name="select">
+                    <option>apple</option>
+                    <option>tesla</option>
+                    <option>lexus</option>
+                </select></label>
+                <input type="submit" value="SubmitForm" />
             </form>
         )
     }
