@@ -454,7 +454,116 @@ class NameForm extends React.Component {
         )
     }
 }
-const element = (<NameForm/>)
+// const element = (<NameForm/>)
+
+// 状态提升
+function BoilingVerdict(props) {
+    if (props.celsius >= 100) {
+        return <p style={{color:'red'}}>boiling!</p>
+    } else {
+        return <p style={{color:'blue'}}>Not boiling</p>
+    }
+}
+class Calculator extends React.Component {
+    constructor (props) {
+        super(props)
+        this.state = {
+            temp: '',
+            unit: 'c'
+        }
+        this.handleFChange = this.handleFChange.bind(this)
+        this.handleCChange = this.handleCChange.bind(this)
+    }
+    handleFChange (temp) {
+        this.setState({
+            temp: temp,
+            unit: 'f'
+        })
+    }
+    handleCChange (temp) {
+        this.setState({
+            temp: temp,
+            unit: 'c'
+        })
+    }
+
+    render() {
+        const unit = this.state.unit
+        const temp = this.state.temp
+        const celsius = unit === 'f' ? tryConvert(temp, toCelsius) : temp;
+        const fahrenheit = unit === 'c' ? tryConvert(temp, toFahrenheit) : temp;
+        return (
+            <div>
+                <TempInput unit="c"
+                           temp={celsius}
+                           onTempChange={this.handleCChange}/>
+                <TempInput unit="f"
+                           temp={fahrenheit}
+                           onTempChange={this.handleFChange}/>
+                <BoilingVerdict celsius={parseFloat(celsius)}/>
+            </div>
+        )
+    }
+}
+
+// 1. 两个组件大体一致，所以可以从 <Calculator/> 中抽离出来
+// 2. 状态提升：数据流的特性 要求我们把 state 提升到父组件
+// 即：把原来子组件 中使用的state 更换为 props，并提升state 到父组件
+class TempInput extends React.Component {
+    constructor(props) {
+        super(props)
+        // this.state = {
+        //     temp: ''
+        // }
+        this.handleChange = this.handleChange.bind(this)
+    }
+    handleChange (e) {
+        // this.setState({
+        //     temp: e.target.value
+        // })
+        // state 属于 父组件中， 子组件不能直接更改
+        this.props.onTempChange(e.target.value)
+        // console.log(parseFloat(e.target.value))
+    }
+
+    // 定义的temp 字符串 要转换为 浮点数
+    render() {
+        // 不需要更新状态的数据
+        const temp = this.props.temp
+        const unit = this.props.unit
+        return (
+            <fieldset>
+                <legend>输入{unitObj[unit]}温度</legend>
+                <input type="number" onChange={this.handleChange} value={temp}/>
+                {/*<BoilingVerdict celsius={parseFloat(this.state.temp)}/>*/}
+            </fieldset>
+        )
+    }
+}
+const unitObj = {
+    c: "摄氏",
+    f: "华氏"
+}
+// 两个输入框的温度相互转换
+function toCelsius(fahrenheit) {
+    return (fahrenheit - 32) * 5 / 9;
+}
+function toFahrenheit(celsius) {
+    return (celsius * 9 / 5) + 32;
+}
+// 该函数接受 温度，并利用上面两个函数进行转化，并输出
+function tryConvert(temperature, convert) {
+    const input = parseFloat(temperature);
+    if (Number.isNaN(input)) {
+        return '';
+    }
+    const output = convert(input);
+    const rounded = Math.round(output * 1000) / 1000;
+    return rounded.toString();
+}
+
+const element = (<Calculator/>)
+
 ReactDOM.render(
   // <h1>hello React</h1>,
   element,
@@ -469,3 +578,4 @@ ReactDOM.render(
 // data flows down 单向数据流
 // state 定义于某组件，使用于该组件
 // fatherComponent ------state as props------>sonComponent
+
