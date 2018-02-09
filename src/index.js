@@ -171,6 +171,8 @@ class Clock extends React.Component {
   // 挂在生命周期钩子
   componentDidMount() {
     console.log('挂载,每一秒执行一次')
+    // setInterval 返回一个数值ID，表示超时调用
+    // 可以通过它来取消 超时调用
     this.timerID = setInterval(() => {
       this.tickInside()
     }, 2000)
