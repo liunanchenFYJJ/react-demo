@@ -477,14 +477,14 @@ class Calculator extends React.Component {
   }
 
   handleFChange(temp) {
-    console.log(temp)
+    // console.log(temp)
     this.setState({
       temp: temp,
       unit: 'f'
     })
   }
   handleCChange(temp) {
-    console.log(temp)    
+    // console.log(temp)    
     this.setState({
       temp: temp,
       unit: 'c'
@@ -540,6 +540,7 @@ class TempInput extends React.Component {
       <fieldset>
         <legend>输入{unitObj[unit]}温度</legend>
         <input type="number" onChange={this.handleChange} value={temp} />
+        <div>66</div>
         {/*<BoilingVerdict celsius={parseFloat(this.state.temp)}/>*/}
       </fieldset>
     )
