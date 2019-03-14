@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 
 export default class Mycom extends Component {
     render() {
-        return <span className="mycom">my Component</span>
+        console.log(this);
+        return (
+            <div>
+                <span className="mycom">my time is {tick()}</span>
+                <p>{this.props.msg}</p>
+            </div>
+        );
     }
+}
+
+function tick() {
+    return new Date().toLocaleTimeString();
 }
