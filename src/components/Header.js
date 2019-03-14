@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AppBar from '@material-ui/core/AppBar';
 
 export default class Header extends Component {
     render() {
@@ -10,9 +11,11 @@ export default class Header extends Component {
             zIndex: '10'
         }
         return (
-            <div style={headerStyle}>
-                Header
-            </div>
+            // <div style={headerStyle}>
+                <AppBar style={headerStyle}>
+                    Header
+                </AppBar>
+            // </div>
         )
     }
 }
