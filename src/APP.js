@@ -9,7 +9,7 @@ import { Tab, Tabs, AppBar, TabContainer } from '@material-ui/core'
 
 export default class App extends Component {
     state = {
-        value: 2
+        value: 1
     };
     handle = (evt, value) => {
         console.log(this);

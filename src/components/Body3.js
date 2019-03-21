@@ -2,24 +2,46 @@ import React, { Component } from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 
 export default class Body3 extends Component {
+    state = {
+        isFocus: false
+    };
     handleFocus = () => {
-        console.log('dd');
-    }
+        this.setState({ isFocus: !this.state.isFocus });
+    };
+    handleCancel = () => {
+        this.setState({ isFocus: !this.state.isFocus });
+    };
     render() {
-        const inputDivStyle = {
-            width: '100%',
-            padding: '0.6em 1.6em 0.6em 1em',
-            inputStyle: {
-                border: 'none',
-            }
+        const outDiv = {
+            padding: '0.8em',
+            background: '#f4f4f4',
         };
-        const text = '搜索歌曲、歌单、专辑'
+        let inputDivStyle = {
+            width: this.state.isFocus ? '70%' : '88%',
+            padding: '0.6em 1.6em 0.6em 1em',
+            background: '#fff',
+            display: 'inline-block',
+        };
+        const inputStyle = {
+            width: '85%',
+            border: 'none',
+            outline: 'none',
+            marginLeft: '0.4em',
+        };
+        let spanStyle = {
+            background: '#f4f4f4',
+            display: this.state.isFocus ? 'inline-block' : 'none',
+            padding: '0 10px 0 10px',
+            fontSize: '0.8em'
+        };
+        const text = '搜索歌曲、歌单、专辑';
         return (
-            <div>
+            <div style={outDiv}>
                 <div  style={inputDivStyle}>
-                    <span><i className='fa fa-search'></i></span>
-                    <input style={inputDivStyle.inputStyle} onFocus={this.handleFocus} placeholder={text} />
+                    <i className='fa fa-search'></i>
+                    <input style={inputStyle} onFocus={this.handleFocus} placeholder={text} />
                 </div>
+                <div style={spanStyle} onClick={this.handleCancel}>取消</div>
             </div>
         )
     }
