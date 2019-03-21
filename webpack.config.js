@@ -20,11 +20,28 @@ module.exports = {
                     }
                 },
                 exclude: /node_modules/,
+            },
+            {
+                test: /\.svg$/,
+                use: ['file-loader']
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },{
+                test: /\.(ttf|eot|woff|woff2)$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: 'fonts/[name].[ext]',
+                    }
+                }
             }
         ]
     },
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
-        open: true
+        open: true,
+        host: '0.0.0.0'
     }
 }

@@ -1,24 +1,39 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import Footer from './components/Footer';
-import { Tab, Tabs, AppBar } from '@material-ui/core'
+import Ad from './components/Ad';
+import Body1 from './components/Body1';
+import Body2 from './components/Body2';
+import Body3 from './components/Body3';
+import { Tab, Tabs, AppBar, TabContainer } from '@material-ui/core'
 
 export default class App extends Component {
+    state = {
+        value: 2
+    };
+    handle = (evt, value) => {
+        console.log(this);
+        this.setState({ value });
+    };
     render() {
         const appStyle = {
             height: '100%'
         }
+        const { value } = this.state;
+        console.log(`${this.state.value}`);
         return (
             <div style={appStyle}>
                 <Header />
                 <AppBar position="static">
-                    <Tabs centered>
-                        <Tab label="Item One" />
-                        <Tab label="Item Two" />
-                        <Tab label="Item Three" />
+                    <Tabs value={value} onChange={this.handle} centered>
+                        <Tab label="推荐" />
+                        <Tab label="排行榜" />
+                        <Tab label="搜索" />
                     </Tabs>
                 </AppBar>
-                <Footer />
+                {value === 0 && <Body1 />}
+                {value === 1 && <Body2 />}
+                {value === 2 && <Body3 />}
+                <Ad />
             </div>
         );
     }
