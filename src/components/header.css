@@ -1,0 +1,7 @@
+img {
+    background: url("../assets/logo_ch.svg") no-repeat;
+    background-size:100% 100%;
+}
+.MuiPrivateTabIndicator-colorSecondary-73 {
+    background-color: #31c27c !important;
+}

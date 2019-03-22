@@ -9,10 +9,9 @@ import { Tab, Tabs, AppBar, TabContainer } from '@material-ui/core'
 
 export default class App extends Component {
     state = {
-        value: 1
+        value: 0
     };
     handle = (evt, value) => {
-        console.log(this);
         this.setState({ value });
     };
     render() {
@@ -20,11 +19,10 @@ export default class App extends Component {
             height: '100%'
         }
         const { value } = this.state;
-        console.log(`${this.state.value}`);
         return (
             <div style={appStyle}>
                 <Header />
-                <AppBar position="static">
+                <AppBar position="static" color="inherit">
                     <Tabs value={value} onChange={this.handle} centered>
                         <Tab label="推荐" />
                         <Tab label="排行榜" />

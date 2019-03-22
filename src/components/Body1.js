@@ -5,7 +5,12 @@ export default class Body1 extends Component {
     render() {
         return (
             <div>
-                Body1
+                <div style={{ height: '150px' }}>
+
+                </div>
+                <div>
+                    <p>电台</p>
+                </div>
                 <Footer />
             </div>
         )

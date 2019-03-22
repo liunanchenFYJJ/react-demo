@@ -6,10 +6,12 @@ export default class Body3 extends Component {
         isFocus: false
     };
     handleFocus = () => {
-        this.setState({ isFocus: !this.state.isFocus });
+        if (!this.isFocus) {
+            this.setState({ isFocus: true });
+        }
     };
     handleCancel = () => {
-        this.setState({ isFocus: !this.state.isFocus });
+        this.setState({ isFocus: false });
     };
     render() {
         const outDiv = {

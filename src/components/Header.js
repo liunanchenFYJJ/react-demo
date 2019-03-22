@@ -1,31 +1,33 @@
 import React, { Component } from 'react';
 import Fab from '@material-ui/core/Fab';
+import './header.css'
 
 export default class Header extends Component {
     render() {
         const headerStyle = {
             // color: 'red',
-            // width: '100%',
+            width: '100%',
             // backgroundColor: 'rgb(255, 251, 240)',
             height: '15%',
-            zIndex: '10',
+            // zIndex: '10',
             buttonStyle: {
                 position: 'absolute',
-                right: '10px',
-                top: '40px',
+                right: '0.6em',
+                top: '7.5%',
+                transform: 'translate(0%, -50%)',
             },
-            imgSrc: '../assets/logo_ch.svg',
             imgStyle: {
-                width: '40%',
-                height: '20px',
+                width: '36%',
+                height: '35px', 
                 position: 'absolute',
-                left: '10px',
-                top: '40px',
+                left: '0.6em',
+                top: '7.5%',
+                transform: 'translate(0%, -50%)',
             }
         }
         return (
             <div style={headerStyle}>
-                <img src={headerStyle.imgSrc} style={headerStyle.imgStyle} />
+                <img style={headerStyle.imgStyle} />
                 <Fab
                     variant="extended"
                     size="small"
