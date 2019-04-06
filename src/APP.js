@@ -5,7 +5,18 @@ import Ad from './components/Ad';
 import Body1 from './components/Body1';
 import Body2 from './components/Body2';
 import Body3 from './components/Body3';
-import { Tab, Tabs, AppBar, TabContainer } from '@material-ui/core'
+import { Tab, Tabs, AppBar, TabContainer } from '@material-ui/core';
+// import freezeObj from './js/freezeObj';
+import { Cars, Civic } from './js/Cars';
+
+let ci = new Civic();
+console.log(ci);
+ci.color = 'red';
+console.log(ci.color);
+
+let s = new Object({age: 10});
+console.log(s);
+console.log(s.job);
 
 export default class App extends Component {
     state = {
