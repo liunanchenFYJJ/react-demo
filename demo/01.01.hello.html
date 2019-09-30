@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/react/15.0.1/react.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.0.1/react-dom.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <div class="test"></div>
+</body>
+<script>
+  ReactDOM.render(
+    React.DOM.div(
+      {
+        id: 'app1',
+        style: {
+          background: 'red',
+        }
+      },
+      React.DOM.h1(
+        {
+          color: '#000'
+        },
+        'say you'
+      ),
+      "say me"
+    ),
+    document.getElementById("app")
+  );
+  ReactDOM.render(
+    React.DOM.p(null, 'test'),
+    document.getElementsByClassName('test')[0],
+  );
+</script>
+</html>
