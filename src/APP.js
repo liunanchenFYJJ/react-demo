@@ -5,6 +5,8 @@ import Ad from './components/Ad';
 import Body1 from './components/Body1';
 import Body2 from './components/Body2';
 import Body3 from './components/Body3';
+import Nav from './components/Nav'
+import Content from './components/Content'
 import { Tab, Tabs, AppBar, TabContainer } from '@material-ui/core';
 // import freezeObj from './js/freezeObj';
 import { Cars, Civic } from './js/Cars';
@@ -27,22 +29,25 @@ export default class App extends Component {
     };
     render() {
         const appStyle = {
-            height: '100%'
+            height: '100%',
+            width: '100%',
         }
         const { value } = this.state;
         return (
             <div style={appStyle}>
                 <Header />
-                <AppBar position="static" color="inherit">
+                <Nav />
+                <Content />
+                {/* <AppBar position="static" color="inherit">
                     <Tabs value={value} onChange={this.handle} centered>
                         <Tab label="推荐" />
                         <Tab label="排行榜" />
                         <Tab label="搜索" />
                     </Tabs>
-                </AppBar>
-                {value === 0 && <Body1 />}
+                </AppBar> */}
+                {/* {value === 0 && <Body1 />}
                 {value === 1 && <Body2 />}
-                {value === 2 && <Body3 />}
+                {value === 2 && <Body3 />} */}
                 <Ad />
             </div>
         );
