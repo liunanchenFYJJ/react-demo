@@ -1,0 +1,33 @@
+div {
+  .histroy {
+    h2 {
+      font-size: .21rem;
+      margin: .16rem;
+      font-size: .14rem;
+    }
+    .histroyList {
+      padding: 0 .16rem;
+    }
+    h2 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .icon {
+        width: .16rem;
+        height: .16rem;
+        background-color: lightgreen;
+      }
+    }
+  }
+  .hot {
+    // 这一段代码可以scss中可以重复使用 TODO:
+    h2 {
+      font-size: .21rem;
+      margin: .16rem;
+      font-size: .14rem;
+    }
+    .histroyList {
+      padding: 0 .16rem;
+    }
+  }
+}

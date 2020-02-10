@@ -1,0 +1,32 @@
+.bottom_bar {
+  height: .45rem;
+  padding: .16rem;
+  bottom: .16rem;
+  box-sizing: content-box;
+  .outer {
+    padding: 0 .16rem;
+    position: fixed;
+    bottom: .16rem;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 100;
+    border-radius: .45rem;
+    background-color: #fafafa;
+    box-shadow: 0 3px 25px rgba(0,0,0,.05);
+    .inner {
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: .45rem;
+      img {
+        width: .22rem;
+        height: .22rem;
+        margin-right: .1rem;
+      }
+      p {
+        white-space: nowrap;
+      }
+    }
+  }
+}

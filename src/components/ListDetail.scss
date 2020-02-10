@@ -1,0 +1,35 @@
+.ListDetail {
+  margin: 0 .04rem;
+  width: 28vw;
+  height: 1.17rem;
+  .img {
+    width: 28vw;
+    height: 28vw;
+    position: relative;
+    img {
+      width: inherit;
+      border-radius: .08rem;
+    }
+    span {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 0 .08rem;
+      background-color: #000;
+      opacity: .4;
+      border-radius: .08rem;
+      z-index: 50;
+      color: #fff;
+      &::before {
+        content: '>';
+      }
+    }
+  }
+  .text {
+    h3 {
+      margin-top: .08rem;
+      font-weight: 300;
+      font-size: .14rem;
+    }
+  }
+}
