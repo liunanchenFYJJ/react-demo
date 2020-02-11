@@ -5,25 +5,8 @@ export default class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tabActiveIndex: 0,
       tabList: ['推荐', '排行'],
     };
-  }
-
-  handleTab(idx) {
-    this.setState((state, props) => ({
-      tabActiveIndex: idx,
-    }))
-
-    switch (idx) {
-      case 1:
-        console.log('1');
-        break;
-        
-        default:
-          console.log('0');
-        break;
-    }
   }
 
   render() {
@@ -44,7 +27,8 @@ export default class Header extends Component {
             {
               this.state.tabList.map((item, index) => {
                 return (
-                  <div key={index} onClick={this.handleTab.bind(this, index)} className={this.state.tabActiveIndex === index ? 'text activeColor': 'text'}>
+                  // 子组件传值给父组件 onHandleTab
+                  <div key={index} onClick={this.props.onHandleTab.bind(this, index)} className={this.props.currentIndex === index ? 'text activeColor': 'text'}>
                     <span>{item}</span>
                   </div>
                 )

@@ -10,20 +10,6 @@
       width: inherit;
       border-radius: .08rem;
     }
-    span {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      padding: 0 .08rem;
-      background-color: #000;
-      opacity: .4;
-      border-radius: .08rem;
-      z-index: 50;
-      color: #fff;
-      &::before {
-        content: '>';
-      }
-    }
   }
   .text {
     h3 {

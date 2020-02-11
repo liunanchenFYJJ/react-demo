@@ -5,5 +5,12 @@
 - sass 代码块复用
 - React 静态资源引用
   ```
-  create-reate-app中图片放在public文件夹下
+    create-reate-app中图片放在public文件夹下
+  ```
+- opacity导致字体颜色改变
+  ```
+    background-color: #000;
+    opacity: .4;
+    ---
+    background-color: rgba($color: #000, $alpha: .4);
   ```
