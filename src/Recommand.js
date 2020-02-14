@@ -1,6 +1,47 @@
 import React, { Component } from "react";
-import './Recommand.scss';
+import styled from 'styled-components';
 import ListDetail from './components/ListDetail';
+
+const RecommandIn = styled.div`
+  .mod {
+    .title {
+      margin: .2rem .16rem .1rem .16rem;
+      padding-right: .1rem;
+      height: .3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      h2 {
+        font-size: .18rem;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+      span {
+        font-weight: 300;
+        font-size: 13px;
+        &::after {
+          content: '>';
+        }
+      }
+    }
+    .content {
+      height: 1.5rem;
+      padding: .1rem 0;
+      ul {
+        list-style: none;
+        display: flex;
+        margin-left: .12rem;
+        height: inherit;
+        overflow-x: scroll; // 滚动
+        /* 隐藏滚动条 TODO: 其他方式？ */
+        /* 1.chrome 兼容其他的浏览器 困难 */
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+  }
+`;
 
 export default class Recommand extends Component {
   render() {
@@ -15,7 +56,7 @@ export default class Recommand extends Component {
       )
     })
     return (
-      <div>
+      <RecommandIn>
         {/* 官方歌单 */}
         <div className="mod">
           <div className="title">
@@ -53,7 +94,7 @@ export default class Recommand extends Component {
           </div>
         </div>
         
-      </div>
+      </RecommandIn>
     )
   }
 }

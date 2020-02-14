@@ -1,7 +1,54 @@
 import React, { Component } from "react";
-import './ContentLeft.scss';
+import styled from 'styled-components';
 import SearchDetail from './SearchDetail';
 import Recommand from './Recommand';
+
+const ContentLeftIn = styled.div`
+  .up {
+    margin-top: .16rem;
+    display: flex;
+    align-items: center;
+    .inputWrapper {
+      margin-left: .16rem;
+      position: relative;
+      input {
+        width: calc(100vw - 1rem);
+        height: .2rem;
+        border: none;
+        outline: none;
+        padding: .05rem 0 .05rem .24rem;
+        font-size: .2rem;
+        border-radius: .3rem;
+        position: relative;
+        &::after {
+          content: '搜索';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
+      }
+      span.cancelCross {
+        position: absolute;
+        right: .1rem;
+        top: .05rem;
+      }
+    }
+    span.text {
+      font-size: .14rem;
+      font-weight: 700;
+      width: .6rem;
+      height: .3rem;
+      box-sizing: border-box;
+      line-height: .3rem;
+      padding: 0 .16rem;
+    }
+  }
+  .main {
+    // height: 10rem;
+    // background-color: lightgreen;
+  }
+
+`;
 
 export default class ContentLeft extends Component {
   constructor(props) {
@@ -78,7 +125,7 @@ export default class ContentLeft extends Component {
 
 
     return (
-      <div>
+      <ContentLeftIn>
         <div className="up">
           <div className="inputWrapper">
             <input ref="searchText" onFocus={this.handleFocus.bind(this)} onKeyDown={(e) => this.handleEnter(e)} onChange={(e) => this.handleInput(e)} />
@@ -91,7 +138,7 @@ export default class ContentLeft extends Component {
             contentLeft
           }
         </div>
-      </div>
+      </ContentLeftIn>
     )
   }
 }

@@ -2,7 +2,7 @@
   ```
     css in js
     - css module 只适用css❌
-    - scss ？
+    - scss styled-components 避免过度组件化
   ```
 - 隐藏滚动条？
 - 获取input的输入 [两种方式]？

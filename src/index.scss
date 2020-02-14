@@ -12,13 +12,14 @@ html {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    
+    h2, h3, p, ul, ol, li {
+      margin: 0;
+      padding: 0;
+    }
   }
 }
 
-h2, h3, p, ul, ol, li {
-  margin: 0;
-  padding: 0;
-}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

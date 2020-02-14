@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import './ContentIndex.scss';
 import ContentLeft from './ContentLeft';
 import ContentRight from './ContentRight';
 
