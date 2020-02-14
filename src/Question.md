@@ -1,4 +1,9 @@
 - React 局部样式怎么写 比如Vue中的scoped
+  ```
+    css in js
+    - css module 只适用css❌
+    - scss ？
+  ```
 - 隐藏滚动条？
 - 获取input的输入 [两种方式]？
 - React 异步数据获取放在 生命周期 哪一步 比如Vue的生命周期

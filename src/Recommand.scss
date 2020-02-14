@@ -26,6 +26,8 @@ div {
       ul {
         list-style: none;
         display: flex;
+        // margin: 0;
+        // padding: 0;
         margin-left: .12rem;
         height: inherit;
         overflow-x: scroll; // 滚动
@@ -36,6 +38,8 @@ div {
         }
         li {
           // background-color: lightgreen;
+          // margin: 0;
+          // padding: 0;
         }
       }
     }

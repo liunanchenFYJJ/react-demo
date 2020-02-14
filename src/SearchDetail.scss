@@ -1,13 +1,18 @@
+// 这一段代码可以scss中可以重复使用 
+@mixin common() {
+  h2 {
+    font-size: .21rem;
+    margin: .16rem;
+    font-size: .14rem;
+  }
+  .histroyList {
+    padding: 0 .16rem;
+  }
+}
+
 div {
   .histroy {
-    h2 {
-      font-size: .21rem;
-      margin: .16rem;
-      font-size: .14rem;
-    }
-    .histroyList {
-      padding: 0 .16rem;
-    }
+    @include common();
     h2 {
       display: flex;
       justify-content: space-between;
@@ -20,14 +25,6 @@ div {
     }
   }
   .hot {
-    // 这一段代码可以scss中可以重复使用 TODO:
-    h2 {
-      font-size: .21rem;
-      margin: .16rem;
-      font-size: .14rem;
-    }
-    .histroyList {
-      padding: 0 .16rem;
-    }
+    @include common();
   }
 }

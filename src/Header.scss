@@ -1,3 +1,5 @@
+$global_color: rgb(34, 213, 156);
+
 .header {
   height: .96rem;
   .outer {
@@ -64,12 +66,12 @@
       // 当前点击class
       .activeColor {
         span {
-          color: rgb(34, 213, 156);
+          color: $global_color;
           &::after {
             content: '';
             width: .2rem;
             height: .03rem;
-            background-color: rgb(34, 213, 156); // 全局颜色 TODO:
+            background-color: $global_color; // 全局颜色
             position: absolute;
             bottom: 0;
             left: 50%;
