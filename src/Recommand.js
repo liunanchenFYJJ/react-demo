@@ -14,11 +14,11 @@ const RecommandIn = styled.div`
       h2 {
         font-size: .18rem;
         font-weight: 700;
-        white-space: nowrap;
       }
       span {
         font-weight: 300;
         font-size: 13px;
+        color: rgba(26, 26, 26, .4);
         &::after {
           content: '>';
         }
@@ -32,7 +32,7 @@ const RecommandIn = styled.div`
         display: flex;
         margin-left: .12rem;
         height: inherit;
-        overflow-x: scroll; // 滚动
+        overflow-x: scroll; /* 滚动 */
         /* 隐藏滚动条 TODO: 其他方式？ */
         /* 1.chrome 兼容其他的浏览器 困难 */
         &::-webkit-scrollbar {

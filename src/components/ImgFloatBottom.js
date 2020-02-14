@@ -6,7 +6,7 @@ const ImgFloatBottomIn = styled.span`
   bottom: 0;
   right: 0;
   padding: 0 .08rem;
-  background-color: rgba($color: #000, $alpha: .4);
+  background: rgba(0, 0, 0, .4);
   border-radius: .08rem;
   z-index: 50;
   color: #fff;

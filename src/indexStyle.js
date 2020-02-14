@@ -19,6 +19,10 @@ const GlobalStyle = createGlobalStyle`
       h2, h3, p, ul, ol, li {
         margin: 0;
         padding: 0;
+        white-space: nowrap;
+      }
+      span {
+        white-space: nowrap;
       }
     }
   }

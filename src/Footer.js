@@ -27,9 +27,6 @@ const FooterIn = styled.footer`
         height: .22rem;
         margin-right: .1rem;
       }
-      p {
-        white-space: nowrap;
-      }
     }
   }
 `

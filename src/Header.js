@@ -31,6 +31,7 @@ const HeaderIn = styled.header`
           h2 {
             font-size: .16rem;
             color: #000;
+            font-weight: 400;
           }
           p {
             font-size: .12rem;
@@ -47,6 +48,7 @@ const HeaderIn = styled.header`
         text-align: center;
         line-height: .25rem;
         white-space: nowrap;
+        color: #575656;
       }
     }
     .down {
@@ -65,7 +67,7 @@ const HeaderIn = styled.header`
         }
       }
 
-      // 当前点击class
+      /* 当前点击class */
       .activeColor {
         span {
           color: ${$global_color};
@@ -73,7 +75,7 @@ const HeaderIn = styled.header`
             content: '';
             width: .2rem;
             height: .03rem;
-            background-color: ${$global_color}; // 全局颜色
+            background-color: ${$global_color}; /* 全局颜色 */
             position: absolute;
             bottom: 0;
             left: 50%;
