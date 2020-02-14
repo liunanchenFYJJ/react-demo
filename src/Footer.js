@@ -6,7 +6,6 @@ const FooterIn = styled.footer`
   padding: .16rem;
   bottom: .16rem;
   box-sizing: content-box;
-  color: red;
   .outer {
     padding: 0 .16rem;
     position: fixed;
