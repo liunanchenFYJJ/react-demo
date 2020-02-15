@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from 'styled-components';
 import SearchDetail from './SearchDetail';
 import Recommand from './Recommand';
+import Iconfont from './components/Iconfont';
 
 const ContentLeftIn = styled.div`
   .up {
@@ -14,8 +15,10 @@ const ContentLeftIn = styled.div`
       span.cancelCross1 {
         position: absolute;
         left: .08rem;
-        top: .05rem;
+        top: .07rem;
         z-index: 50;
+        width: .16rem;
+        height: .16rem;
       }
       input {
         width: calc(100vw - 1rem);
@@ -23,7 +26,8 @@ const ContentLeftIn = styled.div`
         border: none;
         outline: none;
         padding: .05rem 0 .05rem .24rem;
-        font-size: .14rem;
+        /* input focus导致页面放大 只能把font-size设置为16px */
+        font-size: .16rem;
         font-weight: 300;
         border-radius: .3rem;
         position: relative;
@@ -137,7 +141,7 @@ export default class ContentLeft extends Component {
       <ContentLeftIn>
         <div className="up">
           <div className="inputWrapper">
-            <span className="cancelCross1">❌</span>
+            <span className="cancelCross1"><Iconfont icon="sousuo"></Iconfont></span>
             <input ref="searchText" placeholder="搜索" onFocus={this.handleFocus.bind(this)} onKeyDown={(e) => this.handleEnter(e)} onChange={(e) => this.handleInput(e)} />
             <span className="cancelCross" style={{display: this.state.showCancelCross ? 'block' : 'none',}} role="img" aria-label="叉" onClick={this.handleClearInput.bind(this)}>❌</span>
           </div>

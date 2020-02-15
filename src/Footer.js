@@ -15,7 +15,7 @@ const FooterIn = styled.footer`
     z-index: 100;
     border-radius: .45rem;
     background-color: #fafafa;
-    box-shadow: 0 3px 25px rgba(0,0,0,.05);
+    box-shadow: 0 3px 25px rgba(0, 0, 0, .05);
     .inner {
       margin: auto;
       display: flex;

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './SearchDetail.scss';
 import Label from './components/Label';
+import Iconfont from './components/Iconfont';
 
 export default class SearchDetail extends Component {
   constructor(props) {
@@ -38,7 +39,9 @@ export default class SearchDetail extends Component {
         <div style={{display: this.state.showHistory ? 'block' : 'none',}} className="histroy">
           <h2>
             搜索历史
-            <span className="icon" onClick={this.handleClearHistoryList.bind(this)}></span>
+            <span className="icon" onClick={this.handleClearHistoryList.bind(this)}>
+              <Iconfont icon="shanchu"></Iconfont>
+            </span>
           </h2>
           <div className="histroyList">
             { searchHistory }
