@@ -4,7 +4,18 @@
  * 2. es6 class
  */
 import React, { Component } from 'react';
-import './Button.css';
+import styled from 'styled-components';
+
+const ButtonIn = styled.button`
+  width: 25vw;
+  height: 10vw;
+  background-color: green;
+  border-radius: 10px;
+  /* 去除button的默认样式 */
+  border: none;
+  outline: none;
+  padding: 0;
+`;
 
 /**
  * props 只读 important
@@ -29,12 +40,6 @@ import './Button.css';
 
 // 2.
 class Button extends Component {
-  constructor(props) {
-    super(props);
-    // this.handleBTN = this.handleBTN1.bind(this);
-  }
-
-
   // 事件处理函数的调用 
   /**
    * 处理函数的this必须绑定
@@ -42,13 +47,12 @@ class Button extends Component {
    * 2. 箭头函数
    */
   handleBTN = () => {
-    console.log(this)
     console.log('click');
   }
 
   render() {
     return (
-      <button className="btn" onClick={this.handleBTN}>{this.props.title}</button>
+      <ButtonIn className="btn" onClick={this.handleBTN.bind(this)}>{this.props.title}</ButtonIn>
     )
   }
 }

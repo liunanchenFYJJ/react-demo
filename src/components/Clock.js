@@ -21,7 +21,6 @@ import React, { Component } from 'react';
 // class Component 中有三个参数 Component(props, context, updater)
 class Clock extends Component {
   constructor(props) {
-    console.log(Component);
     super(props);
     this.state = {
       date: new Date(),
@@ -30,14 +29,12 @@ class Clock extends Component {
 
   // 生命周期函数 定义好的 思考: 生命周期函数 和 自定义的函数（如：tick）的异同？ TODO:
   componentDidMount() {
-    console.log('挂载');
     this.clockTimer = setInterval(
       () => this.tick(),
       1000
     );
   }
   componentWillUnmount() {
-    console.log('卸载');
     clearInterval(this.clockTimer);
   }
 

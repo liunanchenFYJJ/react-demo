@@ -14,6 +14,34 @@ const LabelIn = styled.div`
 `;
 
 export default class Label extends Component {
+  // 组件生命周期函数
+  // mounted
+  componentWillMount() {
+    console.log('will 加载');
+  }
+  componentDidMount() {
+    console.log('did 加载');
+  }
+
+  // update
+  componentWillReceiveProps() {
+    console.log('will 接收 props');
+  }
+  shouldComponentUpdate() {
+    console.log('接收 props');
+  }
+  componentWillUpdate() {
+    console.log('will 更新');
+  }
+  componentDidUpdate() {
+    console.log('did 更新');
+  }
+
+  // destroy
+  componentWillUnmount() {
+    console.log('卸载');
+  }
+
   render() {
     return (
       <LabelIn>{this.props.title}</LabelIn>

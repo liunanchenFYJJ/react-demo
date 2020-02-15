@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import GlobalStyle from './indexStyle';
+// import App from './App';
 import App from './AppIndex';
 import * as serviceWorker from './serviceWorker';
 
