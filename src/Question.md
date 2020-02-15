@@ -19,3 +19,12 @@
     ---
     background-color: rgba($color: #000, $alpha: .4);
   ```
+- h5 唤起app或跳转appStore[https://www.cnblogs.com/isItOk/p/11454987.html]
+  ```
+  // 没有区别
+  https://itunes.apple.com/cn/app/id47XXXX2
+
+  https://apps.apple.com/cn/app/%E6%96XXXX8%81%98/id10XXXX
+
+  https://apps.apple.com/cn/app/id105XXXX
+  ```

@@ -39,7 +39,7 @@ const HeaderIn = styled.header`
           }
         }
       }
-      .btn {
+      a.btn {
         height: .25rem;
         padding: 0 .17rem;
         border: 1px solid #d8d8d8;
@@ -49,6 +49,7 @@ const HeaderIn = styled.header`
         line-height: .25rem;
         white-space: nowrap;
         color: #575656;
+        text-decoration: none;
       }
     }
     .down {
@@ -107,7 +108,7 @@ export default class Header extends Component {
                 <p>打开APP收藏下载</p>
               </div>
             </div>
-            <div className="btn">下载APP</div>
+            <a className="btn" href="https://apps.apple.com/cn/app/id414603431">下载APP</a>
           </div>
           <div className="down">
             {

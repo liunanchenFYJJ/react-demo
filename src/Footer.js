@@ -38,7 +38,7 @@ export default class Footer extends Component {
   }
 
   downLoadQQMusicApp() {
-    console.log('下载QQ音乐播放器');
+    window.location.href="https://apps.apple.com/cn/app/id414603431";
   }
 
   render() {
