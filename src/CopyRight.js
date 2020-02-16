@@ -10,6 +10,10 @@ const CopyRightIn = styled.section`
     .logo {
       height: .22rem;
     }
+    p {
+      font-size: .12rem;
+      font-weight: 300;
+    }
 `;
 
 export default class CopyRight extends Component {

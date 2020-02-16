@@ -3,10 +3,17 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
   html {
     /* 这样rem 和 px 同步 */
-    font-size: 100px;
     width: 100vw;
+    /* font-size: 100px; */
+    /* 媒体查询 */
+    @media screen and (max-width: 420px) {
+      font-size: 26vw;
+    }
+    @media screen and (min-width: 414px) {
+      font-size: 10vw;
+    }
     body {
-      font-size: .12rem;
+      font-size: .16rem;
       background-color: #fafafa;
 
       margin: 0;

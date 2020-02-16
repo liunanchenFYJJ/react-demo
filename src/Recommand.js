@@ -17,7 +17,7 @@ const RecommandIn = styled.div`
       }
       span {
         font-weight: 300;
-        font-size: 13px;
+        font-size: .13rem;
         color: rgba(26, 26, 26, .4);
         &::after {
           content: '>';
@@ -25,13 +25,11 @@ const RecommandIn = styled.div`
       }
     }
     .content {
-      height: 1.5rem;
       padding: .1rem 0;
       ul {
         list-style: none;
         display: flex;
         margin-left: .12rem;
-        height: inherit;
         overflow-x: scroll; /* 滚动 */
         /* 隐藏滚动条 TODO: 其他方式？ */
         /* 1.chrome 兼容其他的浏览器 困难 */

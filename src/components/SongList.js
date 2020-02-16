@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import styled from 'styled-components';
 import ImgFloatBottom from './ImgFloatBottom';
 
-const $song_list_height = '32vw';
+const $song_list_height = '1.2rem';
 const SongListIn = styled.div`
   display: flex;
   justify-content: space-between;
   .left {
-    height: 32vw;
-    width: calc(100vw - .16rem * 2 - 32vw);
+    height: 1.2rem;
+    width: calc(100vw - .16rem * 2 - 1.2rem);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,8 +28,8 @@ const SongListIn = styled.div`
     }
   }
   .right {
-    height: 32vw;
-    width: 32vw;
+    height: 1.2rem;
+    width: 1.2rem;
     position: relative;
     img {
       border-top-right-radius: .08rem;

@@ -10,6 +10,7 @@ const ImgFloatBottomIn = styled.span`
   border-radius: .08rem;
   z-index: 50;
   color: #fff;
+  font-size: .1rem;
   &::before {
     content: '>';
   }

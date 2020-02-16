@@ -4,11 +4,10 @@ import ImgFloatBottom from './ImgFloatBottom';
 
 const ListDetailIn = styled.div`
   margin: 0 .04rem;
-  width: 28vw;
-  height: 1.17rem;
+  width: 1.05rem;
   .img {
-    width: 28vw;
-    height: 28vw;
+    width: 1.05rem;
+    height: 1.05rem;
     position: relative;
     img {
       width: inherit;
@@ -20,6 +19,9 @@ const ListDetailIn = styled.div`
       margin-top: .08rem;
       font-weight: 300;
       font-size: .14rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 `;
