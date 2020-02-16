@@ -42,6 +42,11 @@ const RecommandIn = styled.div`
 `;
 
 export default class Recommand extends Component {
+
+  handleTouchMove(n, e) {
+    console.log(n);
+  }
+
   render() {
     const temp = [1,2,3,4,5,6];
     const temp1 = [1,2,3,4,5,6,7,8,9,10];
@@ -62,7 +67,7 @@ export default class Recommand extends Component {
             <span>更多</span>
           </div>
           <div className="content">
-            <ul>
+            <ul onTouchMove={(e) => this.handleTouchMove(2, e)}>
               { temphtml }
             </ul>
           </div>

@@ -21,7 +21,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
         <Header onHandleTab={this.onHandleTab_P.bind(this)} currentIndex={this.state.currentIndex}></Header>
         <ContentIndex currentIndex={this.state.currentIndex}></ContentIndex>
         <CopyRight></CopyRight>

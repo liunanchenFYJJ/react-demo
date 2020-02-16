@@ -15,6 +15,7 @@ const SongListIn = styled.div`
     h2 {
       margin: 0 .12rem .04rem .12rem;
       font-weight: 700;
+      font-size: .16rem;
     }
     ol {
       margin-left: .12rem;
@@ -22,7 +23,7 @@ const SongListIn = styled.div`
       li {
         height: .17rem;
         line-height: .16rem;
-        margin: 0 .12rem .04rem .12rem;
+        margin: 0 .12rem .04rem .22rem;
         font-weight: 300;
       }
     }

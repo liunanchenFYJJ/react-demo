@@ -6,7 +6,7 @@ const ImgFloatBottomIn = styled.span`
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 0 .08rem 0 .18rem;
+  padding: .02rem .08rem .02rem .18rem;
   background: rgba(0, 0, 0, .4);
   border-radius: .08rem;
   z-index: 50;
@@ -15,7 +15,7 @@ const ImgFloatBottomIn = styled.span`
   span.cancelCross1 {
     position: absolute;
     left: .04rem;
-    top: .01rem;
+    top: .02rem;
     z-index: 50;
     width: .14rem;
     height: .14rem;
