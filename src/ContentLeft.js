@@ -15,7 +15,7 @@ const ContentLeftIn = styled.div`
       span.cancelCross1 {
         position: absolute;
         left: .08rem;
-        top: .07rem;
+        top: .06rem;
         z-index: 50;
         width: .16rem;
         height: .16rem;
@@ -25,7 +25,7 @@ const ContentLeftIn = styled.div`
         height: .2rem;
         border: none;
         outline: none;
-        padding: .05rem 0 .05rem .24rem;
+        padding: .05rem 0 .05rem .28rem;
         /* input focus导致页面放大 只能把font-size设置为16px */
         font-size: .16rem;
         font-weight: 300;
@@ -42,11 +42,13 @@ const ContentLeftIn = styled.div`
           font-weight: 300;
         }
       }
-      span.cancelCross {
+      span.cancelCross2 {
         position: absolute;
-        right: .1rem;
-        top: .05rem;
+        right: .08rem;
+        top: .06rem;
         z-index: 50;
+        width: .16rem;
+        height: .16rem;
       }
     }
     span.text {
@@ -143,7 +145,7 @@ export default class ContentLeft extends Component {
           <div className="inputWrapper">
             <span className="cancelCross1"><Iconfont icon="sousuo"></Iconfont></span>
             <input ref="searchText" placeholder="搜索" onFocus={this.handleFocus.bind(this)} onKeyDown={(e) => this.handleEnter(e)} onChange={(e) => this.handleInput(e)} />
-            <span className="cancelCross" style={{display: this.state.showCancelCross ? 'block' : 'none',}} role="img" aria-label="叉" onClick={this.handleClearInput.bind(this)}>❌</span>
+            <span className="cancelCross2" style={{display: this.state.showCancelCross ? 'block' : 'none',}} role="img" aria-label="叉" onClick={this.handleClearInput.bind(this)}><Iconfont icon="fork"></Iconfont></span>
           </div>
           <span className="text" style={ this.state.cancelStyle } onClick={this.handleCancel.bind(this)}>取消</span>
         </div>

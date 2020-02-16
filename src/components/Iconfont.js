@@ -8,15 +8,25 @@ const CustomSVG = styled.svg`
   vertical-align: text-bottom;
   fill: currentColor;
   overflow: hidden;
-  color: rgba(26, 26, 26, .5);
+  color: ${props => props.color};
 `;
 
 export default class Iconfont extends Component {
+  // 2. 默认props 写法二
+  static defaultProps = {
+    color: 'rgba(26, 26, 26, .5)',
+  }
+
   render() {
     return (
-      <CustomSVG aria-hidden="true">
+      <CustomSVG color={this.props.color} aria-hidden="true">
         <use xlinkHref={`#icon${this.props.icon}`}></use>
       </CustomSVG>
     )
   }
 }
+
+// 1. 默认props 写法一
+// Iconfont.defaultProps = {
+//   color: 'rgba(26, 26, 26, .5)',
+// };

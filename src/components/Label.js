@@ -16,7 +16,7 @@ const LabelIn = styled.div`
 export default class Label extends Component {
   // 组件生命周期函数
   // mounted
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     console.log('will 加载');
   }
   componentDidMount() {
@@ -24,13 +24,14 @@ export default class Label extends Component {
   }
 
   // update
-  componentWillReceiveProps() {
+  UNSAFE_componentWillReceiveProps() {
     console.log('will 接收 props');
   }
   shouldComponentUpdate() {
     console.log('接收 props');
+    return false;
   }
-  componentWillUpdate() {
+  UNSAFE_componentWillUpdate() {
     console.log('will 更新');
   }
   componentDidUpdate() {

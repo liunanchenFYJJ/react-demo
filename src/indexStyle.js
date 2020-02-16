@@ -15,20 +15,20 @@ const GlobalStyle = createGlobalStyle`
     body {
       font-size: .16rem;
       background-color: #fafafa;
-
       margin: 0;
+      padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       
-      h2, h3, p, ul, ol, li {
+      
+      div, h1, h2, h3, h4, h5, h6, p, ul, ol, li, input, select, textarea, button, img {
         margin: 0;
         padding: 0;
-        white-space: nowrap;
       }
-      span {
+      h2, h3, p, span {
         white-space: nowrap;
       }
     }

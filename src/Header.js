@@ -40,13 +40,13 @@ const HeaderIn = styled.header`
         }
       }
       a.btn {
-        height: .25rem;
+        height: .24rem;
         padding: 0 .17rem;
         border: 1px solid #d8d8d8;
         border-radius: 999px;
         font-size: .13rem;
         text-align: center;
-        line-height: .25rem;
+        line-height: .24rem;
         white-space: nowrap;
         color: #575656;
         text-decoration: none;

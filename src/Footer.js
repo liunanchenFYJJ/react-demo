@@ -27,6 +27,10 @@ const FooterIn = styled.footer`
         height: .22rem;
         margin-right: .1rem;
       }
+      p {
+        font-size: .12rem;
+        font-weight: lighter;
+      }
     }
   }
 `
